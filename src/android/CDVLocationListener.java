@@ -1,7 +1,7 @@
 package com.eteng.geolocation.baidu;
 
 import org.apache.cordova.CallbackContext;
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -34,7 +34,7 @@ public class CDVLocationListener implements BDLocationListener {
 		this.client = null;
 		
 		Log.i(TAG, "地理位置更新");
-		JSONArray reply = new MessageBuilder(position).build();
+		JSONObject reply = new MessageBuilder(position).build();
 		Log.i(TAG, "reply: " + reply);
 		callback.success(reply);
 		

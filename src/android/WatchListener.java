@@ -2,7 +2,7 @@ package com.eteng.geolocation.baidu;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.util.Log;
 
@@ -23,7 +23,7 @@ public class WatchListener implements BDLocationListener {
 	public void onReceiveLocation(BDLocation position) {
 		Log.i(TAG, "位置改变");
 		
-		JSONArray reply = new MessageBuilder(position).build();
+		JSONObject reply = new MessageBuilder(position).build();
 		
 		PluginResult result = new PluginResult(PluginResult.Status.OK, reply);
 		result.setKeepCallback(true);

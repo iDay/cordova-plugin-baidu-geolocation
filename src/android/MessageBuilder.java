@@ -1,6 +1,5 @@
 package com.eteng.geolocation.baidu;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,7 +15,7 @@ public class MessageBuilder {
 		this.location = location;
 	}
 	
-	public JSONArray build() {
+	public JSONObject build() {
 		Position result = new Position()
 			.setTimestamp(System.currentTimeMillis())
 			.setCoords(new Coordinates()
@@ -28,19 +27,14 @@ public class MessageBuilder {
 				.setAltitude(location.getAltitude())
 			);
 		
-		JSONObject addition = new JSONObject();
+		JSONObject json = result.toJSON();
 		try {
-			addition.put("type", location.getLocType());
+			json.put("type", location.getLocType());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		
-		JSONArray message = new JSONArray();
-		
-		message.put(result.toJSON());
-		message.put(addition);
-		
-		return message;
+		return json;
 	}
 
 }
