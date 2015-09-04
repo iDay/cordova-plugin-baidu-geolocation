@@ -44,7 +44,7 @@ public class CDVLocationListener implements BDLocationListener {
 	public void getCurrentPosition() {
 		LocationClientOption options = new LocationClientOption();
         options.setLocationMode(LocationMode.Hight_Accuracy);
-        options.setCoorType(COORD_BD09LL);
+        options.setCoorType(COORD_GCJ02);
         client.setLocOption(options);
         
 		client.start();
