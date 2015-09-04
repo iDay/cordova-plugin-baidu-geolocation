@@ -19,6 +19,7 @@ geolocation.watchPosition = function (success, error, options) {
 	if (typeof(geolocation.watchId) != "undefined") {
 		geolocation.clearWatch(geolocation.watchId);
 	}
+	geolocation.getCurrentPosition(success, error, options);
 	geolocation.watchId = setInterval(function() {
 		geolocation.getCurrentPosition(success, error, options);
 	}, 10000);
